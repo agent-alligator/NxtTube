@@ -8,6 +8,7 @@ const Login = ({ onLoginSuccess }) => {
     });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -22,7 +23,7 @@ const Login = ({ onLoginSuccess }) => {
         setError('');
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/login/', {
+            const response = await fetch('http://10.10.26.244:8000/api/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,17 +52,25 @@ const Login = ({ onLoginSuccess }) => {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword((prev) => !prev);  // Toggle password visibility
+    };
+
     return (
         <div className="login-container">
             <div className="login-card">
                 <div className="login-header">
-                    <h2>Welcome to NxTube</h2>
-                    <p>Sign in to continue</p>
+                <img
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                    className="login-top-image"
+                    width="140" // or any size you want
+                    height="auto"
+                />
                 </div>
 
                 <form onSubmit={handleSubmit} className="login-form" autoComplete="off">
                     <div className="form-group">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">USERNAME</label>
                         <input
                             type="text"
                             id="username"
@@ -69,24 +78,35 @@ const Login = ({ onLoginSuccess }) => {
                             value={formData.username}
                             onChange={handleChange}
                             required
-                            placeholder="Enter your username"
+                            placeholder="Username"
                             autoComplete="off"
                             autoFocus
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">PASSWORD</label>
                         <input
-                            type="password"
+                            type={showPassword ? 'text' : 'password'}
                             id="password"
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
                             required
-                            placeholder="Enter your password"
+                            placeholder="Password"
                             autoComplete="new-password"
                         />
+                    </div>
+
+                    <div className="form-group">
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={showPassword}
+                                onChange={togglePasswordVisibility}
+                            />
+                            Show Password
+                        </label>
                     </div>
 
                     {error && <div className="error-message">{error}</div>}
@@ -96,7 +116,7 @@ const Login = ({ onLoginSuccess }) => {
                         className="login-button"
                         disabled={loading}
                     >
-                        {loading ? 'Signing in...' : 'Sign In'}
+                        {loading ? 'Logging in...' : ' Login'}
                     </button>
                 </form>
             </div>

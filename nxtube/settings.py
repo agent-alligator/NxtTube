@@ -136,12 +136,20 @@ REST_FRAMEWORK = {
     ],
 }
 
+ALLOWED_HOSTS = ["*"]
+
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite default
     "http://127.0.0.1:5173",
     "http://localhost:3000",  # React default (if you change)
     "http://127.0.0.1:3000",
+    "http://10.10.26.244:5173"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://10.10.26.244:5173",
+    "http://localhost:5173",
 ]
 
 

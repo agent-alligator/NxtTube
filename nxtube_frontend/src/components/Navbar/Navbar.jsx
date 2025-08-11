@@ -1,7 +1,11 @@
 import React from 'react';
 import './Navbar.css';
+import { useNavigate } from 'react-router-dom';
+import { FiLogOut } from 'react-icons/fi';
+import { HiBars3 } from 'react-icons/hi2';
 
 const Navbar = ({ onLogout, username }) => {
+    const navigate = useNavigate();
     const handleLogout = () => {
         if (onLogout) {
             onLogout();
@@ -16,9 +20,11 @@ const Navbar = ({ onLogout, username }) => {
     return (
         <nav className="navbar">
             <div className="navbar-left">
-                <div className="app-logo">
+                <div className="app-logo"
+                onClick={() => navigate('/')}
+                >
                     <img
-                        src="/nxtube-logo.png"
+                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                         alt="NxTube"
                         className="logo-image"
                         onError={(e) => {
@@ -26,7 +32,7 @@ const Navbar = ({ onLogout, username }) => {
                             e.target.nextSibling.style.display = 'block';
                         }}
                     />
-                    <span className="logo-text">NxTube</span>
+                    {/* <span className="logo-text">NxTube</span> */}
                 </div>
             </div>
 
@@ -34,18 +40,26 @@ const Navbar = ({ onLogout, username }) => {
                 <div className="profile-section">
                     <div className="profile-image">
                         <img
-                            src="https://via.placeholder.com/40x40/007bff/ffffff?text=U"
+                            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png "
                             alt="Profile"
                             className="profile-avatar"
                         />
+                        <HiBars3 className="profile-bars" aria-label="Menu" />
                     </div>
-                    {username && <span className="username">{username}</span>}
                     <button
                         className="logout-button"
                         onClick={handleLogout}
                     >
                         Logout
                     </button>
+                    <FiLogOut
+                        className='logout-icon'
+                        onClick={handleLogout}
+                        aria-label='Logout'
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleLogout()}
+                    />
                 </div>
             </div>
         </nav>

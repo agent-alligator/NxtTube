@@ -5,7 +5,7 @@
     padding: 0 20px;
     height: 60px;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* box-s200pxhadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -14,9 +14,12 @@
 .navbar-left {
     display: flex;
     align-items: center;
+    width: 200px;
+    height: 80px;
 }
 
 .app-logo {
+    width: 200px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -24,7 +27,7 @@
 }
 
 .logo-image {
-    width: 32px;
+    width: 130px;
     height: 32px;
     object-fit: contain;
 }
@@ -74,9 +77,9 @@
 
 .logout-button {
     padding: 8px 16px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
+    background-color: white;
+    color: #296aaf;
+    border: 2px solid #296aaf;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
@@ -84,12 +87,24 @@
     transition: background-color 0.2s ease;
 }
 
-.logout-button:hover {
+/* .logout-button:hover {
     background-color: #c82333;
-}
+} */
 
 .logout-button:active {
     transform: translateY(1px);
+}
+
+.logout-icon {
+    display: none;          /* hidden by default */
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+.profile-bars {
+    display: none;          /* hide bars by default */
+    font-size: 28px;
+    cursor: pointer;
 }
 
 /* Responsive design */
@@ -106,8 +121,21 @@
         gap: 10px;
     }
 
-    .logout-button {
+    /* .logout-button {
         padding: 6px 12px;
         font-size: 12px;
+    } */
+    .profile-avatar { display: none; }  /* hide image */
+    .profile-bars { display: inline-flex; }
+
+    .logout-button { display: none; }   /* hide button */
+    .logout-icon { display: inline-flex; }
+}
+
+@media (max-width:576px){
+    .logo-image {
+        width: 100px;
+        height: 28px;
+        object-fit: contain;
     }
 }

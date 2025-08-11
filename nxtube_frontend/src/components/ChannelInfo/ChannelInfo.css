@@ -1,0 +1,31 @@
+.channel-info {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 12px;
+  }
+  
+  .channel-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+  }
+  
+  .channel-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .channel-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .channel-subs {
+    font-size: 10px;
+    color: #606060;
+    margin: 0;
+  }
+  

@@ -1,0 +1,53 @@
+.nf-container {
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .nf-heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .nf-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .nf-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .nf-button:hover {
+    filter: brightness(0.95);
+  }
+  
+  .nf-image {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 2rem;
+    object-fit: contain;
+  }
+  
+  /* Optional: make it look nicer on small screens */
+  @media (max-width: 576px) {
+    .nf-container {
+      padding: 60px 16px;
+    }
+    .nf-heading {
+      font-size: 2rem;
+    }
+    .nf-text {
+      font-size: 1rem;
+    }
+    .nf-image {
+      width: 220px;
+      height: 220px;
+    }
+  }
+  

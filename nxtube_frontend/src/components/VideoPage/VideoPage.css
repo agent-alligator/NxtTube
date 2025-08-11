@@ -1,0 +1,62 @@
+.video-title{
+    text-align: left;
+    margin-bottom: 4px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.video-info{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-top: 0px;
+}
+
+.video-reactions {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
+  
+  .reaction-icon {
+    cursor: pointer;
+    color: black; /* default color */
+    transition: color 0.2s ease;
+  }
+  
+  .reaction-icon:hover {
+    color: #555; /* slightly lighter on hover */
+  }
+  
+  .reaction-icon.active {
+    color: #3b82f6; /* active state color */
+  }
+
+  .video-player {
+    width: 99%;
+    aspect-ratio: 16 / 9;   /* keeps constant height:width */
+    /* background: #000;        */
+    /* nice letterbox while loading */
+  }
+  
+  .video-player iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+@media (max-width: 576px) {
+  .video-info{
+      display: flex;
+      align-items: flex-start; 
+      justify-content: flex-start;
+      flex-direction: column;
+      text-align: left;
+  }
+}
+
+  
